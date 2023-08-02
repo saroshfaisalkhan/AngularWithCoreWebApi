@@ -1,4 +1,4 @@
-<table>
+<table class="table">
     <thead>
         <tr>
             <th>Name</th>
@@ -12,9 +12,10 @@
     </thead>
     <tbody>
         <tr *ngFor="let emp of empService.listEmployee">
-            <td>{{emp.name}}</td>
-            <td>{{emp.lastname}}</td>
-            <td>{{emp.doj}}</td>
+            <td>{{emp.name|uppercase}}</td>
+            <td>{{emp.lastname|uppercase}}</td>
+            <td>{{emp.email}}</td>
+            <td>{{emp.doj|date}}</td>
             <td>{{emp.designation}}</td>
             <td>{{emp.age}}</td>
            
