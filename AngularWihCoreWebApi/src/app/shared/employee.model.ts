@@ -1,7 +1,7 @@
 export class Employee {
     id:number=0;
     name:string='';
-    lastname:string='';
+    lastName:string='';
     email:string='';
     age:number=0;
     doj:any;
