@@ -10,7 +10,7 @@ export class EmployeeService {
 
   constructor(private http:HttpClient) { }
 
-  employeeUrl:string='https://localhost:7211/api/Employees';
+  employeeUrl:string='https://localhost:44339/api/Employees';
   designationUrl:string='https://localhost:7211/api/Designations';
 
   //getting list of employee and designation
