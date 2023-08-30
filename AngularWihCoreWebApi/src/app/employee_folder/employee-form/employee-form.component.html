@@ -1,1 +1,105 @@
-<p>employee-form works!</p>
+<input type="checkbox" id="toggle" name="toggle" #checkbox1>
+<label for="toggle"></label>
+
+<div class="container">
+
+</div>
+
+<div class="formAdd">
+    <form [formGroup]="myForm" (ngSubmit)="onFormSubmit()">
+        <div class="container">
+
+            <div class="row">
+                <div class="col-md-3">
+                    <input type="hidden" [value]="empService.employeeData.id" name="id"  formControlName="id">
+
+
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" name="name" placeholder="Enter Name" formControlName="name">
+                </div>
+
+
+                <div class="col-md-3">
+                    <label for="lastName">Last Name</label> <!-- Corrected: Use "lastName" for id -->
+                    <input type="text" class="form-control" name="lastName" placeholder="Enter Last Name"  formControlName="lastName">
+                </div>
+                <div class="col-md-3">
+                    <label for="email">Email</label> <!-- Corrected: Use "email" for id -->
+                    <input type="email" class="form-control" name="email" placeholder="Enter Email"  formControlName="email">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="age">Age</label> <!-- Corrected: Use "age" for id -->
+                    <input type="number" class="form-control" name="age" placeholder="Enter Age"  formControlName="age" >
+                </div>
+
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <label for="doj">Date Of Joining</label> <!-- Corrected: Use "doj" for id -->
+                    <input type="date" class="form-control" name="doj" placeholder="Enter Date of Joining"  formControlName="doj">
+                </div>
+
+                <div class="col-md-3">
+                    <label for="designation">Designation
+                    
+                    </label> <!-- Corrected: Use "doj" for id -->
+                    <select class="form-control" name="designationId"  formControlName="designationId">
+                        <option value="0">Select Designation</option>
+                        <option [value]="desg.id" *ngFor="let desg of empService.listDesignation">{{desg.designation}}
+                        </option>
+                    </select>
+                </div>
+
+                <div class="col-md-6">
+                    <label for="gender">Gender</label>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="gender" value="male" formControlName="gender">Male
+                                   
+                                </label>
+                            </div>
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="gender" value="female" formControlName="gender">Female
+                                   
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check form-check-inline">
+                                <input type="checkbox" class="form-check-input" formControlName="isMarried">
+                                <label class="form-check-label" for="isMarried">Married</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                            
+                                <input type="checkbox" class="form-check-input"  formControlName="isActive" >
+                                <label class="form-check-label" for="isActive">Active</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-8"></div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-block btn-success">Save</button>
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-block btn-danger" >Cancel</button>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </form>
+</div>

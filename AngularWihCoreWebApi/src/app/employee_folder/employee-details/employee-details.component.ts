@@ -36,8 +36,10 @@ export class EmployeeDetailsComponent implements OnInit {
     this.empService.DeleteEmployee(id).subscribe({
       next:(res)=>{
         console.log("Record Deleted Successfully");
+
+        // REFRESH THE LIST AFTER RECORD SUCCESSFULLY DELETED
         this.empService.GetEmployees().subscribe(data=>{
-          this.empService.listEmployee=data
+        this.empService.listEmployee=data
          });
       },
       error:(err:any)=> {

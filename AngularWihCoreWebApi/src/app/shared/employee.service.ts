@@ -8,19 +8,23 @@ import { Observable } from 'rxjs';
 })
 export class EmployeeService {
 
+  private employeeUrl:string='https://localhost:44339/api/Employees';
+  private designationUrl:string='https://localhost:44339/api/Designations';
+ 
+
   constructor(private http:HttpClient) { }
 
-  employeeUrl:string='https://localhost:44339/api/Employees';
-  designationUrl:string='https://localhost:7211/api/Designations';
 
   //getting list of employee and designation
   listEmployee:Employee[]=[];
   listDesignation:Designation[]=[];
 
   employeeData:Employee=new Employee(); // for post/update/delete single employee
+  designation:Designation=new Designation();
 
-  SaveEmployee(){
-    return this.http.post(this.employeeUrl,this.employeeData);
+  SaveEmployee():Observable<Employee>{
+
+    return this.http.post<Employee>(this.employeeUrl,this.employeeData);
   }
 
   UpdateEmployee(){
@@ -38,5 +42,12 @@ export class EmployeeService {
 
   GetDesignations():Observable<Designation[]>{
     return this.http.get<Designation[]>(this.designationUrl);
+  }
+
+  GetDesignation(id:number):Observable<Designation>{
+    return this.http.get<Designation>(`${this.designationUrl}/${id}`);
+  }
+  PostDesignation():Observable<Designation>{
+    return this.http.post<Designation>(this.designationUrl,this.designation);
   }
 }

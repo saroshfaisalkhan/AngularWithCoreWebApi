@@ -9,7 +9,7 @@ export class Employee {
     ismarried:boolean=false;
     isactive:boolean=false;
     designationId:number=0;
-    designation:string='';
+    designation:string|null=''
 }
 
 export class Designation{
