@@ -82,7 +82,7 @@ export class EmployeeFormComponent implements OnInit{
         designation: designationData.designation,
 
       };
-
+      // it will save employee
       return this.empService.SaveEmployee();
     })
   ).subscribe(data => {
